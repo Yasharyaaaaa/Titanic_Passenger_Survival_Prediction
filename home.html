@@ -1,0 +1,64 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Titanic Survival Prediction</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+  <h2 class="mb-4">Titanic Survival Prediction</h2>
+  <form action="/predict" method="POST">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="Pclass">Passenger Class</label>
+        <select class="form-control" id="Pclass" name="Pclass">
+          <option value="1">1 (First Class)</option>
+          <option value="2">2 (Second Class)</option>
+          <option value="3">3 (Third Class)</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="Sex">Sex</label>
+        <select class="form-control" id="Sex" name="Sex">
+          <option value="0">Male</option>
+          <option value="1">Female</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="Age">Age</label>
+        <input type="number" step="any" class="form-control" id="Age" name="Age" placeholder="Enter age" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="SibSp">Siblings/Spouses Aboard</label>
+        <input type="number" class="form-control" id="SibSp" name="SibSp" min="0" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="Parch">Parents/Children Aboard</label>
+        <input type="number" class="form-control" id="Parch" name="Parch" min="0" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="Fare">Fare</label>
+        <input type="number" step="any" class="form-control" id="Fare" name="Fare" placeholder="Enter fare" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Embarked">Port of Embarkation</label>
+      <select class="form-control" id="Embarked" name="Embarked">
+        <option value="1">Q (Queenstown)</option>
+        <option value="2">S (Southampton)</option>
+        <option value="3">C (Cherbourg)</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Predict Survival</button>
+  </form>
+</div>
+</body>
+</html>
+
+    
